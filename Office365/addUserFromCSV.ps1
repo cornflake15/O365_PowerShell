@@ -11,12 +11,15 @@ Function Get-FileName($initialDirectory){
 }
 
 function CreateUser () {
-    $licensesForMhs = 'your SKU'
-    $defaultPassword = 'User default password'
+    $licensesForMhs = '<licenses-name>', '<licenses-name>'
+    #$licensesForKaryawan = '<licenses-name>', '<licenses-name>'
+    $defaultPassword = '<user password>'
 
     Import-Csv $csvImport | ForEach-Object { 
         New-Msoluser -userPrincipalName $_."UserName" -displayname $_."DisplayName" -password $defaultPassword -ForceChangePassword $true -usagelocation "id"
         Set-MsolUserLicense -userPrincipalName $_."UserName" -AddLicenses $licensesForMhs
+        #$adds = $_."UserName"
+        #Write-Output "Adding $adds"
     }
 }
 

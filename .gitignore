@@ -1,0 +1,4 @@
+# Ignore unnecessary file
+automatic-login.ps1
+email-format.txt
+reset-password.txt

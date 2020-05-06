@@ -1,0 +1,1 @@
+Get-MsolUser -All | Where-Object {($_.licenses).AccountSkuId -eq "<licenses-name>"} | Select-Object UserPrincipalName, DisplayName | Export-Csv "<microsoft365user>.csv"  -NoTypeInformation -Encoding UTF8
